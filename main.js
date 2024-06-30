@@ -61,10 +61,13 @@ function play() {
 
     if (userValue < computerNum) {
         resultArea.textContent = "UP!";
+        resultArea.style.color = "#000";
     } else if (userValue > computerNum) {
         resultArea.textContent = "DOWN!";
+        resultArea.style.color = "#000";
     } else {
         resultArea.textContent = "정답입니다!";
+        resultArea.style.color = "#000";
         numberBox.textContent = computerNum;
         gameOver = true;
     }
@@ -81,7 +84,8 @@ function play() {
 function reset() {
     userInput.value = "";
     pickRandomNum();
-    resultArea.textContent = "";
+    resultArea.textContent = "힌트가 표시됩니다.";
+    resultArea.style.color = "#ccc";
     numberBox.textContent = "?";
     chances = 5;
     gameOver = false;
@@ -89,5 +93,25 @@ function reset() {
     updateChanceIcons();
     playButton.disabled = false;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.getElementById('infoModal');
+    var btn = document.getElementById('info-button');
+    var span = document.getElementById('closeModalBtn');
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+});
 
 pickRandomNum();
