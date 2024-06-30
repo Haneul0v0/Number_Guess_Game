@@ -7,7 +7,7 @@ let chances = 5;
 let gameOver = false;
 let chanceArea = document.getElementById("chance-area");
 let heartIconsContainer = document.getElementById("heart-icons");
-let numberBox = document.getElementById("number-box"); // 네모 박스 요소 선택
+let numberBox = document.getElementById("number-box");
 let history = [];
 
 playButton.addEventListener("click", play);
@@ -26,11 +26,19 @@ function updateChanceIcons() {
 
     heartIcons.forEach((icon, index) => {
         if (index < chances) {
-            icon.classList.remove("fa-regular");
-            icon.classList.add("fa-solid");
+            icon
+                .classList
+                .remove("fa-regular");
+            icon
+                .classList
+                .add("fa-solid");
         } else {
-            icon.classList.remove("fa-solid");
-            icon.classList.add("fa-regular");
+            icon
+                .classList
+                .remove("fa-solid");
+            icon
+                .classList
+                .add("fa-regular");
         }
     });
 }
@@ -44,7 +52,7 @@ function play() {
     }
 
     if (history.includes(userValue)) {
-        resultArea.textContent = "이미 입력한 숫자입니다.다른 숫자를 입력해주세요.";
+        resultArea.textContent = "이미 입력한 숫자입니다.";
         return;
     }
 
@@ -65,6 +73,7 @@ function play() {
 
     if (chances < 1 || gameOver) {
         gameOver = true;
+        numberBox.textContent = computerNum;
         playButton.disabled = true;
     }
 }
