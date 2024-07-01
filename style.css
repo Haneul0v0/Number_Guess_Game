@@ -44,7 +44,7 @@ body {
     border: 2px solid #65CD05;
     border-radius: 10px;
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
     line-height: 100px;
     font-weight: bold;
     margin: 20px auto;
@@ -59,6 +59,27 @@ body {
     justify-content: center;
     align-items: center;
     height: 100px;
+}
+
+#guess-history {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.history-num {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border: 2px solid #65CD05;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 45px;
+    display: inline-block;
+    margin: 0 5px;
+    margin-bottom: 20px;
 }
 
 .input-container {
@@ -76,6 +97,7 @@ body {
     border-radius: 10px;
     padding: 5px;
     font-size: 30px;
+    font-weight: bold;
 }
 
 #user-input:focus {
@@ -126,9 +148,13 @@ button#reset-button:disabled {
     margin-top: 20px;
 }
 
+#heart-icons {
+    margin-bottom: 10px;
+}
+
 .fa-heart {
     color: red;
-    margin: 0 1px;
+    margin: 0 10px;
 }
 
 .fa-regular.fa-heart {
@@ -171,7 +197,7 @@ button#reset-button:disabled {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경색 */
+    background-color: rgba(0, 0, 0, 0.5);
     overflow: auto;
 }
 
@@ -224,6 +250,10 @@ button#reset-button:disabled {
     background-color: #559904;
 }
 
+.right-img-area {
+    margin-top: 50px;
+}
+
 @media (max-width: 600px) {
     .input-container {
         flex-direction: column;
@@ -240,12 +270,13 @@ button#reset-button:disabled {
         height: auto;
     }
 
+    .right-img-area {
+        margin-top: 0px;
+    }
 }
 
 @media (min-width: 600px) and (max-width: 992px) {
-    .right-img-area {
-        margin-top: 50px;
-    }
+
 }
 
 @media (min-width: 992px) {
@@ -279,4 +310,6 @@ button#reset-button:disabled {
     button#play-button {
         width: 100px;
     }
+
+    
 }

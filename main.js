@@ -8,6 +8,7 @@ let gameOver = false;
 let chanceArea = document.getElementById("chance-area");
 let heartIconsContainer = document.getElementById("heart-icons");
 let numberBox = document.getElementById("number-box");
+let guessHistory = document.getElementById("guess-history");
 let history = [];
 
 playButton.addEventListener("click", play);
@@ -73,12 +74,24 @@ function play() {
     }
 
     history.push(userValue);
+    updateGuessHistory();
 
     if (chances < 1 || gameOver) {
         gameOver = true;
         numberBox.textContent = computerNum;
         playButton.disabled = true;
     }
+}
+
+function updateGuessHistory() {
+    let historyNums = guessHistory.querySelectorAll(".history-num");
+    historyNums.forEach((numDiv, index) => {
+        if (index < history.length) {
+            numDiv.textContent = history[index];
+        } else {
+            numDiv.textContent = "";
+        }
+    });
 }
 
 function reset() {
@@ -90,6 +103,8 @@ function reset() {
     chances = 5;
     gameOver = false;
     history = [];
+    guessHistory.innerHTML = "";
+    updateGuessHistory();
     updateChanceIcons();
     playButton.disabled = false;
 }
